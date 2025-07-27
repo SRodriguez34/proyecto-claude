@@ -3,36 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BebidaShop - Tienda de Bebidas</title>
+    <title>BebidaShop - Tienda Premium de Bebidas</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1><i class="fas fa-glass-cheers"></i> BebidaShop</h1>
-            <p>Las mejores bebidas para cualquier ocasión</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-wine-glass-alt"></i>
+                <span>BebidaShop</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Inicio</a>
+                <a href="#catalog">Catálogo</a>
+                <a href="#about">Nosotros</a>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Descubre <span class="hero-accent">Bebidas Premium</span><br>
+                    Para Cada Momento
+                </h1>
+                <p class="hero-subtitle">
+                    Selección cuidadosamente curada de las mejores bebidas artesanales, 
+                    naturales y premium. Entrega rápida directo a tu puerta.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#catalog" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i>
+                        Explorar Catálogo
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Entrega Rápida</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Calidad Premium</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div class="floating-card card-1">🍷</div>
+                    <div class="floating-card card-2">🥃</div>
+                    <div class="floating-card card-3">🍻</div>
+                    <div class="floating-card card-4">🥤</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <span>Desliza hacia abajo</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
         <div class="container">
-            <section class="hero">
-                <h2>Nuestro Catálogo</h2>
-                <p>Descubre nuestra selección de bebidas premium</p>
-            </section>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Recibe tus bebidas favoritas en 24-48 horas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Calidad Premium</h3>
+                    <p>Solo las mejores marcas y productos artesanales</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Compra Fácil</h3>
+                    <p>Ordena directamente por WhatsApp de forma sencilla</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section class="products" id="products-container">
+    <!-- Catalog Section -->
+    <section id="catalog" class="catalog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Catálogo Premium</h2>
+                <p class="section-subtitle">
+                    Descubre nuestra selección exclusiva de bebidas premium, 
+                    cada una elegida por su calidad excepcional y sabor único.
+                </p>
+            </div>
+
+            <div class="catalog-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="alcoholic">Alcohólicas</button>
+                <button class="filter-btn" data-filter="non-alcoholic">Sin Alcohol</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+            </div>
+
+            <div class="products-grid" id="products-container">
                 <!-- Los productos se cargarán aquí dinámicamente -->
-            </section>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <p>&copy; 2024 BebidaShop. Todos los derechos reservados.</p>
-            <div class="contact-info">
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: +1234567890</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>¿Por Qué Elegir BebidaShop?</h2>
+                    <p>
+                        Somos más que una tienda de bebidas. Somos curadores de experiencias únicas, 
+                        seleccionando cuidadosamente cada producto para ofrecerte solo lo mejor.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Productos 100% auténticos</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Precios competitivos</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Atención personalizada</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <div class="about-badge">
+                            <i class="fas fa-award"></i>
+                            <span>Calidad<br>Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>¿Listo para tu próxima bebida favorita?</h2>
+                <p>Contáctanos por WhatsApp y realizamos tu pedido al instante</p>
+                <a href="https://wa.me/1234567890" class="contact-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-wine-glass-alt"></i>
+                        <span>BebidaShop</span>
+                    </div>
+                    <p>Tu tienda premium de bebidas de confianza</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Enlaces</h4>
+                        <a href="#home">Inicio</a>
+                        <a href="#catalog">Catálogo</a>
+                        <a href="#about">Nosotros</a>
+                        <a href="#contact">Contacto</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <p><i class="fab fa-whatsapp"></i> +1234567890</p>
+                        <p><i class="fas fa-envelope"></i> info@bebidashop.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BebidaShop. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
