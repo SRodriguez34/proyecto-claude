@@ -6,6 +6,14 @@
   --accent-color: #f59e0b;
   --accent-dark: #d97706;
   
+  /* Colores para ofertas */
+  --oferta-rojo: #dc2626;
+  --oferta-verde: #16a34a;
+  --oferta-naranja: #ea580c;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
   /* Colores neutros */
   --white: #ffffff;
   --gray-50: #f9fafb;
@@ -917,4 +925,612 @@ body {
   .contact-content p {
     font-size: 1rem;
   }
+}
+
+/* ===== MÓDULO DE OFERTAS Y COMBOS ===== */
+
+/* Sección de ofertas */
+.ofertas-section {
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+  position: relative;
+}
+
+.ofertas-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gray-200), transparent);
+}
+
+/* Contenedor principal de ofertas */
+#ofertas-container {
+  padding: var(--spacing-3xl) 0;
+}
+
+.ofertas-header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.ofertas-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.ofertas-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--oferta-rojo), var(--oferta-naranja));
+  border-radius: 2px;
+}
+
+.ofertas-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Secciones */
+.ofertas-individuales,
+.combos-section {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.seccion-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+/* Grids */
+.ofertas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.combos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* Cards de ofertas individuales */
+.oferta-card {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  position: relative;
+  border: 1px solid var(--gray-200);
+}
+
+.oferta-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+/* Badges y tags */
+.oferta-badge,
+.combo-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  background: var(--oferta-rojo);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 0.875rem;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+.oferta-tag,
+.combo-tag {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: var(--oferta-verde);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+/* Imagen del producto */
+.oferta-imagen,
+.combo-imagen {
+  height: 200px;
+  background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.producto-emoji,
+.combo-emoji {
+  font-size: 4rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.oferta-imagen::before,
+.combo-imagen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: var(--transition-slow);
+}
+
+.oferta-card:hover .oferta-imagen::before,
+.combo-card:hover .combo-imagen::before {
+  left: 100%;
+}
+
+/* Información del producto */
+.oferta-info,
+.combo-info {
+  padding: var(--spacing-xl);
+}
+
+.oferta-marca {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.oferta-nombre,
+.combo-nombre {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.3;
+}
+
+.oferta-descripcion,
+.combo-descripcion {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Rating */
+.oferta-rating,
+.combo-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-stars i {
+  color: var(--accent-color);
+  font-size: 0.875rem;
+}
+
+.rating-number {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-left: var(--spacing-xs);
+}
+
+.rating-count {
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+
+/* Precios */
+.oferta-precios,
+.combo-precios {
+  margin-bottom: var(--spacing-lg);
+}
+
+.precio-original {
+  color: var(--gray-500);
+  text-decoration: line-through;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.precio-oferta {
+  color: var(--oferta-rojo);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.ahorro-badge {
+  background: var(--oferta-verde);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.ahorro-destacado {
+  background: linear-gradient(135deg, var(--oferta-verde), var(--success-color));
+  color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  font-weight: 600;
+}
+
+/* Stock */
+.oferta-stock,
+.combo-stock {
+  margin-bottom: var(--spacing-lg);
+}
+
+.stock-indicator {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  background: var(--gray-100);
+  color: var(--gray-700);
+  display: inline-block;
+}
+
+.stock-indicator.stock-bajo {
+  background: var(--warning-color);
+  color: var(--white);
+}
+
+/* Botones */
+.btn-agregar-carrito {
+  width: 100%;
+  padding: var(--spacing-lg);
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.btn-agregar-carrito:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-agregar-carrito:active {
+  transform: translateY(0);
+}
+
+.combo-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.combo-btn:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--accent-dark));
+}
+
+/* Cards de combos */
+.combo-card {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  position: relative;
+  border: 2px solid var(--gray-200);
+}
+
+.combo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-color);
+}
+
+.combo-productos {
+  background: var(--gray-50);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--accent-color);
+}
+
+.combo-productos h5 {
+  color: var(--gray-900);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.combo-productos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.combo-productos li {
+  color: var(--gray-700);
+  padding: var(--spacing-xs) 0;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: var(--spacing-lg);
+}
+
+.combo-productos li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--oferta-verde);
+  font-weight: bold;
+}
+
+/* Loader */
+#ofertas-loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--gray-200);
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Notificaciones */
+.notificacion {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 10000;
+  max-width: 400px;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.notificacion.mostrar {
+  transform: translateX(0);
+}
+
+.notificacion-success {
+  background: var(--success-color);
+  color: var(--white);
+}
+
+.notificacion-error {
+  background: var(--error-color);
+  color: var(--white);
+}
+
+.notificacion-warning {
+  background: var(--warning-color);
+  color: var(--white);
+}
+
+.notificacion-info {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.cerrar-notificacion {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Error container */
+.error-container {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--gray-600);
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.error-container h3 {
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-md);
+}
+
+.btn-reintentar {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  margin-top: var(--spacing-lg);
+}
+
+.btn-reintentar:hover {
+  background: var(--primary-dark);
+}
+
+/* Responsive para ofertas */
+@media (max-width: 1024px) {
+  .combos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ofertas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ofertas-title {
+    font-size: 2rem;
+  }
+  
+  .seccion-title {
+    font-size: 1.5rem;
+  }
+  
+  .ofertas-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .combos-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .oferta-card,
+  .combo-card {
+    margin: 0 var(--spacing-md);
+  }
+  
+  .notificacion {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #ofertas-container {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .ofertas-header {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .ofertas-title {
+    font-size: 1.75rem;
+  }
+  
+  .ofertas-subtitle {
+    font-size: 1rem;
+  }
+  
+  .oferta-info,
+  .combo-info {
+    padding: var(--spacing-lg);
+  }
+  
+  .precio-oferta {
+    font-size: 1.5rem;
+  }
+  
+  .producto-emoji,
+  .combo-emoji {
+    font-size: 3rem;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.oferta-card,
+.combo-card {
+  animation: fadeInScale 0.6s ease-out;
+}
+
+/* Estados de hover mejorados */
+.oferta-card:hover .oferta-nombre,
+.combo-card:hover .combo-nombre {
+  color: var(--primary-color);
+}
+
+.oferta-card:hover .producto-emoji,
+.combo-card:hover .combo-emoji {
+  transform: scale(1.1);
+  transition: transform var(--transition-normal);
 }

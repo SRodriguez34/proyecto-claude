@@ -20,6 +20,7 @@
             </div>
             <div class="nav-links">
                 <a href="#home">Inicio</a>
+                <a href="#ofertas">Ofertas</a>
                 <a href="#catalog">Catálogo</a>
                 <a href="#about">Nosotros</a>
                 <a href="#contact">Contacto</a>
@@ -45,13 +46,13 @@
                     naturales y premium. Entrega rápida directo a tu puerta.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#catalog" class="btn btn-primary">
-                        <i class="fas fa-shopping-bag"></i>
-                        Explorar Catálogo
+                    <a href="#ofertas" class="btn btn-primary">
+                        <i class="fas fa-fire"></i>
+                        Ver Ofertas
                     </a>
-                    <a href="#contact" class="btn btn-outline">
-                        <i class="fab fa-whatsapp"></i>
-                        WhatsApp
+                    <a href="#catalog" class="btn btn-outline">
+                        <i class="fas fa-shopping-bag"></i>
+                        Catálogo
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -114,6 +115,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Ofertas Section -->
+    <section id="ofertas" class="ofertas-section">
+        <div class="container">
+            <div id="ofertas-container">
+                <!-- Las ofertas se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Loader para ofertas -->
+    <div id="ofertas-loader">
+        <div class="loader-spinner"></div>
+    </div>
 
     <!-- Catalog Section -->
     <section id="catalog" class="catalog-section">
@@ -205,6 +220,7 @@
                     <div class="footer-section">
                         <h4>Enlaces</h4>
                         <a href="#home">Inicio</a>
+                        <a href="#ofertas">Ofertas</a>
                         <a href="#catalog">Catálogo</a>
                         <a href="#about">Nosotros</a>
                         <a href="#contact">Contacto</a>
@@ -223,5 +239,6 @@
     </footer>
 
     <script src="app.js"></script>
+    <script src="ofertas-simple.js"></script>
 </body>
 </html>
